@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Tracking - {{ tid }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container mt-4">
+    <h2>Edit Tracking ID: {{ tid }}</h2>
+    <form method="POST">
+      <div class="form-group">
+        <label>Status</label>
+        <input type="text" name="status" class="form-control" value="{{ data.status }}" required />
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" name="location" class="form-control" value="{{ data.location }}" required />
+      </div>
+      <div class="form-group">
+        <label>Progress (%)</label>
+        <input type="number" name="progress" class="form-control" value="{{ data.progress }}" required />
+      </div>
+      <div class="form-group">
+        <label>Progress Stage</label>
+        <input type="number" name="stage" class="form-control" value="{{ data.progressStage }}" required />
+      </div>
+      <button type="submit" class="btn btn-success">Update</button>
+      <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

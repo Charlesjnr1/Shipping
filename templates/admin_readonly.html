@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard (Read Only)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container mt-4">
+    <h2>George Dashboard</h2>
+    <a href="{{ url_for('admin_logout') }}" class="btn btn-sm btn-danger float-right">Logout</a>
+
+    <h4 class="mt-4">Tracking Entries</h4>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th><th>Status</th><th>Location</th><th>Progress</th><th>Stage</th><th>Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tid, item in data.items() %}
+          <tr>
+            <td>{{ tid }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.location }}</td>
+            <td>{{ item.progress }}%</td>
+            <td>{{ item.progressStage }}</td>
+            <td>{{ item.updated }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
