@@ -10,20 +10,65 @@
     <a href="{{ url_for('admin_logout') }}" class="btn btn-sm btn-danger float-right">Logout</a>
 
     <h4 class="mt-4">Add New Tracking</h4>
-    <form method="POST" action="{{ url_for('add_tracking') }}" class="form-inline">
-      <input name="tracking_id" placeholder="Tracking ID" required class="form-control m-1" />
-      <input name="status" placeholder="Status" required class="form-control m-1" />
-      <input name="location" placeholder="Location" required class="form-control m-1" />
-      <input name="progress" type="number" placeholder="Progress %" class="form-control m-1" />
-      <input name="stage" type="number" placeholder="Stage #" class="form-control m-1" />
-      <button type="submit" class="btn btn-success m-1">Add</button>
+    <form method="POST" action="{{ url_for('add_tracking') }}" class="border p-3 mb-4 bg-light">
+      <div class="form-row">
+        <div class="col">
+          <input name="tracking_id" placeholder="Tracking ID" required class="form-control" />
+        </div>
+        <div class="col">
+          <input name="status" placeholder="Status" required class="form-control" />
+        </div>
+        <div class="col">
+          <input name="location" placeholder="Location" required class="form-control" />
+        </div>
+        <div class="col">
+          <input name="progress" type="number" placeholder="Progress %" required class="form-control" />
+        </div>
+        <div class="col">
+          <input name="stage" type="number" placeholder="Stage #" required class="form-control" />
+        </div>
+        <div class="col">
+          <input name="balance_due" type="number" placeholder="Balance Due" class="form-control" />
+        </div>
+      </div>
+
+      <hr>
+      <h5>Timeline History</h5>
+      <div id="historyFields">
+        {% for i in range(3) %}
+        <div class="form-row mb-2">
+          <div class="col">
+            <input name="history_label_{{ i }}" class="form-control" placeholder="Label (e.g. Picked Up)" />
+          </div>
+          <div class="col">
+            <input name="history_location_{{ i }}" class="form-control" placeholder="Location (e.g. Detroit, MI)" />
+          </div>
+          <div class="col">
+            <select name="history_done_{{ i }}" class="form-control">
+              <option value="">Done?</option>
+              <option value="True">Yes</option>
+              <option value="False">No</option>
+            </select>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="btn btn-success mt-3">Add Tracking Entry</button>
     </form>
 
     <h4 class="mt-5">All Tracking Entries</h4>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>ID</th><th>Status</th><th>Location</th><th>Progress</th><th>Stage</th><th>Updated</th><th>Actions</th>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Location</th>
+          <th>Progress</th>
+          <th>Stage</th>
+          <th>Balance</th>
+          <th>Updated</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +79,7 @@
             <td>{{ item.location }}</td>
             <td>{{ item.progress }}%</td>
             <td>{{ item.progressStage }}</td>
+            <td>${{ item.get('balance_due', 0) }}</td>
             <td>{{ item.updated }}</td>
             <td>
               <a href="{{ url_for('edit_tracking', tid=tid) }}" class="btn btn-sm btn-primary">Edit</a>
