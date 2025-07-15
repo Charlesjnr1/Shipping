@@ -8,28 +8,21 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
-   <!-- Favicon -->
+<!-- Favicon -->
 <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/lib/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<!-- Font Awesome (CDN - no change needed) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
 <!-- Libraries Stylesheet -->
 <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
 <!-- Customized Bootstrap Stylesheet -->
 <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-<!-- Owl Carousel CSS -->
-<link rel="stylesheet" href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}">
-
-
-
 
 </head>
 
@@ -41,7 +34,7 @@
                 <div class="d-inline-flex align-items-center text-white">
                     <small><i class="fa fa-phone-alt mr-2"></i></small>
                     <small class="px-3">|</small>
-                    <small><i class="fa fa-envelope mr-2"></i>earlystarcustomercare@gmail.com</small>
+                    <small><i class="fa fa-envelope mr-2"></i>Earlystarcustomercare@gmail.com</small>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -72,31 +65,26 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
             <a href="{{ url_for('index') }}" class="navbar-brand ml-lg-3">
-                <h1 class="m-0 display-5 text-uppercase text-primary">
-                    <i class="fa fa-truck mr-2"></i>Ictslogistics
-                </h1>
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-truck mr-2"></i>Faster</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="{{ url_for('index') }}" class="nav-item nav-link {% if request.endpoint == 'index' %}active{% endif %}">Home</a>
                     <a href="{{ url_for('about') }}" class="nav-item nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
                     <a href="{{ url_for('service') }}" class="nav-item nav-link {% if request.endpoint == 'service' %}active{% endif %}">Service</a>
-                    <a href="{{ url_for('price') }}" class="nav-item nav-link {% if request.endpoint == 'price' %}active{% endif %}">Price</a>
-    
+                    <a href="{{ url_for('price') }}" class="nav-item nav-link {% if request.endpoint == 'price' %}active{% endif %}">Solutions</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                       
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{{ url_for('blog') }}" class="dropdown-item">Blog Grid</a>
+                            <a href="{{ url_for('single') }}" class="dropdown-item">Blog Detail</a>
+                        </div>
                     </div>
-    
-                    <a href="{{ url_for('contact') }}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Contact Us</a>
-
-    
-                
-    
+                    <a href="{{ url_for('contact') }}" class="nav-item nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a>
+                </div>
                 
             </div>
         </nav>
@@ -104,220 +92,82 @@
     
     <!-- Navbar End -->
 
+
+    <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
-          <h1 class="text-primary mb-4">Safe & Faster</h1>
-          <h1 class="text-white display-3 mb-5">Logistics Services</h1>
-      
-          <div class="mx-auto" style="width: 100%; max-width: 600px;">
-            <div class="input-group">
-              <input type="text" id="trackingIdInput" class="form-control border-light" style="padding: 30px;" placeholder="Tracking Id">
-              <div class="input-group-append">
-                <button id="trackBtn" class="btn btn-primary px-3">Track & Trace</button>
-              </div>
+            <h1 class="text-white display-3">About</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">About</p>
             </div>
-          </div>
-      
-          <div class="progress my-4" style="height: 25px;">
-            <div id="progressBar" class="progress-bar bg-success" style="width: 0%;" role="progressbar"
-              aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-          </div>
-      
-          <div id="trackingResult"></div>
-          <div id="statusTimeline" class="mt-4"></div>
         </div>
-        </div>
-      </div>
-      
-      
-      
-      <!-- Fake Tracking Script -->
+    </div>
     <!-- Header End -->
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Image & Experience -->
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/about.jpg') }}" alt="About Faster Logistics">
-                    <div class="bg-primary text-dark text-center p-4">
-                        <h3 class="m-0">25+ Years of Experience</h3>
-                    </div>
-                </div>
-    
-                <!-- About Text Content -->
-                <div class="col-lg-7">
-                    <h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
-                    <h1 class="mb-4">Your Reliable and Fast Logistics Partner</h1>
-                    <p class="mb-4">
-                        With over two decades of delivering excellence, we are committed to providing fast, secure, and efficient logistics solutions. Whether it's domestic or international, we make sure your shipment reaches its destination safely and on time.
-                    </p>
-                    <div class="d-flex align-items-center pt-2">
-                        <button type="button" class="btn-play" data-toggle="modal"
-                        data-src="https://www.youtube.com/embed/jc4zLq9IfjI" data-target="#videoModal">
-                            <span></span>
-                        </button>
-                        <h5 class="font-weight-bold m-0 ml-4">Watch Our Story</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Video Modal -->
-        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- About End -->
-
-
-    <!--  Quote Request Start -->
-    <div class="container-fluid bg-secondary my-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Text Section -->
-                <div class="col-lg-7 py-5 py-lg-0">
-                    <h6 class="text-primary text-uppercase font-weight-bold">Get A Quote</h6>
-                    <h1 class="mb-4">Request a Free Delivery Estimate</h1>
-                    <p class="mb-4">
-                        Need reliable and fast shipping? Request a free quote now and we’ll get back to you with a customized logistics plan. Whether it's local or international, we deliver with care and speed.
-                    </p>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h1 class="text-primary mb-2" data-toggle="counter-up">225</h1>
-                            <h6 class="font-weight-bold mb-4">Skilled Experts</h6>
-                        </div>
-                        <div class="col-sm-4">
-                            <h1 class="text-primary mb-2" data-toggle="counter-up">1050</h1>
-                            <h6 class="font-weight-bold mb-4">Happy Clients</h6>
-                        </div>
-                        <div class="col-sm-4">
-                            <h1 class="text-primary mb-2" data-toggle="counter-up">2500</h1>
-                            <h6 class="font-weight-bold mb-4">Deliveries Completed</h6>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Quote Form -->
-                <div class="col-lg-5">
-                    <div class="bg-primary py-5 px-4 px-sm-5">
-                        <form class="py-5">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required />
-                            </div>
-                            <div class="form-group">
-                                <select class="custom-select border-0 px-4" style="height: 47px;">
-                                    <option selected>Select a Service</option>
-                                    <option value="1">Express Delivery</option>
-                                    <option value="2">Cargo Shipping</option>
-                                    <option value="3">International Freight</option>
-                                </select>
-                            </div>
-                            <div>
-                                
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Quote Request Start -->
-
-
-    <!-- Services Start -->
-<div class="container-fluid pt-5">
+<div class="container-fluid py-5">
     <div class="container">
-        <div class="text-center pb-2">
-            <h6 class="text-primary text-uppercase font-weight-bold">Our Services</h6>
-            <h1 class="mb-4">Reliable Logistics Solutions</h1>
+        <div class="row align-items-center">
+            <div class="col-lg-5 pb-4 pb-lg-0">
+                <img class="img-fluid w-100" src="{{ url_for('static', filename='img/about.jpg') }}" alt="About Us">
+                <div class="bg-primary text-dark text-center p-4">
+                    <h3 class="m-0">25+ Years of Excellence</h3>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
+                <h1 class="mb-4">Reliable & Fast Logistics Partner</h1>
+                <p class="mb-4">
+                    We are a trusted logistics provider with over 25 years of experience delivering packages with speed, safety, and precision. Our commitment is to ensure every delivery meets the highest standards of quality and reliability.
+                </p>
+                <div class="d-flex align-items-center pt-2">
+                    <button type="button" class="btn-play" data-toggle="modal"
+                        data-src="https://www.youtube.com/embed/Nym2bOd4ZcQ" data-target="#videoModal">
+                        <span></span>
+                    </button>
+                    <h5 class="font-weight-bold m-0 ml-4">Watch Our Story</h5>
+                </div>
+            </div>
         </div>
-        <div class="row pb-3">
-            <!-- Air Freight -->
-            <div class="col-lg-3 col-md-6 text-center mb-5">
-                <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                    <i class="fa fa-2x fa-plane text-dark pr-3"></i>
-                    <h6 class="text-white font-weight-medium m-0">Air Freight</h6>
-                </div>
-                <p>Fast and secure air cargo delivery to destinations worldwide with real-time tracking.</p>
-                <a class="border-bottom text-decoration-none" href="#">Read More</a>
-            </div>
+    </div>
 
-            <!-- Ocean Freight -->
-            <div class="col-lg-3 col-md-6 text-center mb-5">
-                <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                    <i class="fa fa-2x fa-ship text-dark pr-3"></i>
-                    <h6 class="text-white font-weight-medium m-0">Ocean Freight</h6>
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" id="video" allow="autoplay" allowscriptaccess="always"></iframe>
+                    </div>
                 </div>
-                <p>Cost-effective and dependable sea shipping for large-volume international deliveries.</p>
-                <a class="border-bottom text-decoration-none" href="#">Read More</a>
-            </div>
-
-            <!-- Land Transport -->
-            <div class="col-lg-3 col-md-6 text-center mb-5">
-                <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                    <i class="fa fa-2x fa-truck text-dark pr-3"></i>
-                    <h6 class="text-white font-weight-medium m-0">Land Transport</h6>
-                </div>
-                <p>Efficient and timely door-to-door ground delivery across cities and rural areas.</p>
-                <a class="border-bottom text-decoration-none" href="#">Read More</a>
-            </div>
-
-            <!-- Cargo Storage -->
-            <div class="col-lg-3 col-md-6 text-center mb-5">
-                <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                    <i class="fa fa-2x fa-store text-dark pr-3"></i>
-                    <h6 class="text-white font-weight-medium m-0">Cargo Storage</h6>
-                </div>
-                <p>Secure and flexible warehousing solutions for short or long-term cargo storage.</p>
-                <a class="border-bottom text-decoration-none" href="#">Read More</a>
             </div>
         </div>
     </div>
 </div>
-<!-- Services End -->
+<!-- About End -->
 
 
-
-    <!-- Features Start -->
+<!-- Features Start -->
 <div class="container-fluid bg-secondary my-5">
     <div class="container">
         <div class="row align-items-center">
-            <!-- Image Section -->
             <div class="col-lg-5">
                 <img class="img-fluid w-100" src="{{ url_for('static', filename='img/feature.jpg') }}" alt="Why Choose Us">
             </div>
-
-            <!-- Text Section -->
             <div class="col-lg-7 py-5 py-lg-0">
                 <h6 class="text-primary text-uppercase font-weight-bold">Why Choose Us</h6>
-                <h1 class="mb-4">Fast, Reliable & Secure Delivery Services</h1>
+                <h1 class="mb-4">Efficient, Secure & Trusted Logistics Services</h1>
                 <p class="mb-4">
-                    We provide efficient logistics solutions to ensure your packages are delivered quickly and securely. 
-                    Whether it's local or international, our trusted service keeps you informed every step of the way.
+                    With a dedicated team and state-of-the-art tracking, we ensure your package arrives safely and on time. Your satisfaction drives our excellence.
                 </p>
                 <ul class="list-inline">
                     <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Industry-Leading Reliability</h6></li>
-                    <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Express Emergency Deliveries</h6></li>
-                    <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>24/7 Customer Assistance</h6></li>
+                    <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>24/7 Emergency Dispatch</h6></li>
+                    <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Live Customer Support</h6></li>
                 </ul>
                 <a href="#" class="btn btn-primary mt-3 py-2 px-4">Learn More</a>
             </div>
@@ -326,228 +176,43 @@
 </div>
 <!-- Features End -->
 
-    <!-- Features End -->
 
-
-   <!-- Delivery Packages Start -->
+<!-- Team Start -->
 <div class="container-fluid pt-5">
     <div class="container">
         <div class="text-center pb-2">
-            <h6 class="text-primary text-uppercase font-weight-bold">Delivery Options</h6>
-            <h1 class="mb-4">Choose the Right Plan for You</h1>
+            <h6 class="text-primary text-uppercase font-weight-bold">Delivery Team</h6>
+            <h1 class="mb-4">Meet Our Expert Team</h1>
         </div>
         <div class="row">
-            <!-- Standard Delivery -->
-            <div class="col-md-4 mb-5">
-                <div class="bg-secondary">
-                    <div class="bg-primary text-center p-4">
-                        <h3 class="m-0 text-white">Standard Delivery</h3>
-                    </div>
-                    <div class="d-flex flex-column align-items-center py-4 px-3">
-                        <p>3-5 Business Days</p>
-                        <p>Nationwide Coverage</p>
-                        <p>Real-Time Tracking</p>
-                        <p>Basic Customer Support</p>
-                        <a href="#" class="btn btn-primary py-2 px-4 mt-3">Select Option</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Express Delivery -->
-            <div class="col-md-4 mb-5">
-                <div class="bg-secondary">
-                    <div class="bg-primary text-center p-4">
-                        <h3 class="m-0 text-white">Express Delivery</h3>
-                    </div>
-                    <div class="d-flex flex-column align-items-center py-4 px-3">
-                        <p>1-2 Business Days</p>
-                        <p>Priority Handling</p>
-                        <p>Live Tracking & Updates</p>
-                        <p>Premium Support</p>
-                        <a href="#" class="btn btn-primary py-2 px-4 mt-3">Select Option</a>
+            {% for member in [
+                {'name': 'James Carter', 'role': 'Dispatch Manager', 'img': 'team-1.jpg'},
+                {'name': 'Liam Evans', 'role': 'Logistics Coordinator', 'img': 'team-2.jpg'},
+                {'name': 'Olivia Turner', 'role': 'Driver Lead', 'img': 'team-3.jpg'},
+                {'name': 'Emma Brooks', 'role': 'Operations Supervisor', 'img': 'team-4.jpg'}
+            ] %}
+            <div class="col-lg-3 col-md-6">Liam Evans
+                <div class="team card position-relative overflow-hidden border-0 mb-5">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/' + member.img) }}" alt="{{ member.name }}">
+                    <div class="card-body text-center p-0">
+                        <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                            <h5 class="font-weight-bold">{{ member.name }}</h5>
+                            <span>{{ member.role }}</span>
+                        </div>
+                        <div class="team-social d-flex align-items-center justify-content-center bg-primary">
+                            <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Same-Day Delivery -->
-            <div class="col-md-4 mb-5">
-                <div class="bg-secondary">
-                    <div class="bg-primary text-center p-4">
-                        <h3 class="m-0 text-white">Same-Day Delivery</h3>
-                    </div>
-                    <div class="d-flex flex-column align-items-center py-4 px-3">
-                        <p>Delivered Within Hours</p>
-                        <p>Door-to-Door Pickup</p>
-                        <p>24/7 Live Tracking</p>
-                        <p>Dedicated Support Team</p>
-                        <a href="#" class="btn btn-primary py-2 px-4 mt-3">Select Option</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
-<!-- Delivery Packages End -->
-
-
-
-    <!-- Team Start -->
-    <div class="container-fluid pt-5">
-        <div class="container">
-            <div class="text-center pb-2">
-                <h6 class="text-primary text-uppercase font-weight-bold">Delivery Team</h6>
-                <h1 class="mb-4">Meet Our Delivery Team</h1>
-            </div>
-            <div class="row">
-                <!-- Team Member 1 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="team card position-relative overflow-hidden border-0 mb-5">
-                        <img class="card-img-top" src="{{ url_for('static', filename='img/team-1.jpg') }}" alt="Alex Carter">
-                        <div class="card-body text-center p-0">
-                            <div class="team-text d-flex flex-column justify-content-center bg-secondary">
-                                <h5 class="font-weight-bold">Alex Carter</h5>
-                                <span>Operations Manager</span>
-                            </div>
-                            <div class="team-social d-flex align-items-center justify-content-center bg-primary">
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Team Member 2 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="team card position-relative overflow-hidden border-0 mb-5">
-                        <img class="card-img-top" src="{{ url_for('static', filename='img/team-2.jpg') }}" alt="Emily Davis">
-                        <div class="card-body text-center p-0">
-                            <div class="team-text d-flex flex-column justify-content-center bg-secondary">
-                                <h5 class="font-weight-bold">james Davis</h5>
-                                <span>Fleet Coordinator</span>
-                            </div>
-                            <div class="team-social d-flex align-items-center justify-content-center bg-primary">
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Team Member 3 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="team card position-relative overflow-hidden border-0 mb-5">
-                        <img class="card-img-top" src="{{ url_for('static', filename='img/team-3.jpg') }}" alt="Michael Thompson">
-                        <div class="card-body text-center p-0">
-                            <div class="team-text d-flex flex-column justify-content-center bg-secondary">
-                                <h5 class="font-weight-bold">Sophia Martinez</h5>
-                                <span>Lead Driver</span>
-                            </div>
-                            <div class="team-social d-flex align-items-center justify-content-center bg-primary">
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Team Member 4 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="team card position-relative overflow-hidden border-0 mb-5">
-                        <img class="card-img-top" src="{{ url_for('static', filename='img/team-4.jpg') }}" alt="Sophia Martinez">
-                        <div class="card-body text-center p-0">
-                            <div class="team-text d-flex flex-column justify-content-center bg-secondary">
-                                <h5 class="font-weight-bold">Michael Thompson</h5>
-                                <span>Customer Coordinator</span>
-                            </div>
-                            <div class="team-social d-flex align-items-center justify-content-center bg-primary">
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-
-    <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="text-center pb-2">
-                <h6 class="text-primary text-uppercase font-weight-bold">Testimonial</h6>
-                <h1 class="mb-4">Our Clients Say</h1>
-            </div>
-    
-            <div class="owl-carousel testimonial-carousel">
-                <!-- Testimonial 1 -->
-                <div class="position-relative bg-secondary p-4">
-                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/testimonial-1.jpg') }}" style="width: 60px; height: 60px;" alt="">
-                        <div class="ml-3">
-                            <h6 class="font-weight-semi-bold m-0">Jane Doe</h6>
-                            <small>- E-commerce Seller</small>
-                        </div>
-                    </div>
-                    <p class="m-0">"I’ve used several logistics companies in the past, but none come close to the speed, professionalism, and reliability of ICTS Logistics. My shipments always arrive on time, and tracking is seamless!"</p>
-                </div>
-    
-                <!-- Testimonial 2 -->
-                <div class="position-relative bg-secondary p-4">
-                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/testimonial-2.jpg') }}" style="width: 60px; height: 60px;" alt="">
-                        <div class="ml-3">
-                            <h6 class="font-weight-semi-bold m-0">Mark Benson</h6>
-                            <small>- Importer</small>
-                        </div>
-                    </div>
-                    <p class="m-0">"From the moment I placed my order to final delivery, the communication was top-notch. ICTS made everything easy and stress-free. I’ll definitely use them again for my business deliveries."</p>
-                </div>
-    
-                <!-- Testimonial 3 -->
-                <div class="position-relative bg-secondary p-4">
-                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/testimonial-3.jpg') }}" style="width: 60px; height: 60px;" alt="">
-                        <div class="ml-3">
-                            <h6 class="font-weight-semi-bold m-0">Fatima Ali</h6>
-                            <small>- Retailer</small>
-                        </div>
-                    </div>
-                    <p class="m-0">"ICTS Logistics is a game changer. Their real-time tracking, friendly support, and prompt delivery make them the best in the industry. Highly recommended for anyone looking for dependable shipping."</p>
-                </div>
-    
-                <!-- Testimonial 4 -->
-                <div class="position-relative bg-secondary p-4">
-                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/testimonial-4.jpg') }}" style="width: 60px; height: 60px;" alt="">
-                        <div class="ml-3">
-                            <h6 class="font-weight-semi-bold m-0">David Umeh</h6>
-                            <small>- Manufacturer</small>
-                        </div>
-                    </div>
-                    <p class="m-0">"What impressed me most was how they handled my urgent delivery. The team went above and beyond to ensure everything arrived ahead of schedule. Truly professional!"</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Testimonial End -->
-
-
-    
+<!-- Team End -->
 
 
     <!-- Footer Start -->
@@ -559,7 +224,7 @@
                         <h3 class="text-primary mb-4">Get In Touch</h3>
                         <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
                         <p><i class="fa fa-phone-alt mr-2"></i></p>
-                        <p><i class="fa fa-envelope mr-2"></i>earlystarcustomercare@gmail.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>Earlystarcustomercare@gmail.com</p>
                         <div class="d-flex justify-content-start mt-4">
                             <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -593,7 +258,9 @@
             </div>
         </div>
     </div>
-   
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+          
             <div class="col-lg-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
                     <li class="nav-item">
@@ -620,86 +287,20 @@
 
 
     <!-- JavaScript Libraries -->
-   <!-- jQuery and Bootstrap from CDN (these are fine as-is) -->
+    <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-
-<!-- Local JavaScript Libraries -->
 <script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
 <script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
 <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
 <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
-<!-- Contact Form Scripts -->
+<!-- Contact Javascript File -->
 <script src="{{ url_for('static', filename='mail/jqBootstrapValidation.min.js') }}"></script>
 <script src="{{ url_for('static', filename='mail/contact.js') }}"></script>
 
-
-    <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("trackBtn").addEventListener("click", () => {
-        const trackingId = document.getElementById("trackingIdInput").value.trim();
-        const progressBar = document.getElementById("progressBar");
-        const resultDiv = document.getElementById("trackingResult");
-    
-        if (!trackingId) {
-          resultDiv.innerHTML = "<div class='alert alert-warning'>Please enter a Tracking ID.</div>";
-          updateProgressBar(0);
-          return;
-        }
-    
-        fetch("/track", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ trackingId })
-        })
-        .then(res => res.json())
-        .then(data => {
-          if (data.found) {
-            updateProgressBar(data.progress);
-            resultDiv.innerHTML = `
-              <div class='alert alert-info'>
-                <strong>Status:</strong> ${data.status}<br>
-                <strong>Current Location:</strong> ${data.location}
-              </div>`;
-          } else {
-            updateProgressBar(0);
-            resultDiv.innerHTML = `<div class='alert alert-danger'>${data.message}</div>`;
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          resultDiv.innerHTML = `<div class='alert alert-danger'>Something went wrong. Try again later.</div>`;
-        });
-      });
-    
-      function updateProgressBar(value) {
-        const bar = document.getElementById("progressBar");
-        bar.style.width = `${value}%`;
-        bar.innerText = `${value}%`;
-        bar.setAttribute("aria-valuenow", value);
-      }
-    });
-    </script>
-    <script>
-        $(document).ready(function(){
-          $(".testimonial-carousel").owlCarousel({
-            autoplay: true,
-            smartSpeed: 1000,
-            items: 1,
-            dots: true,
-            loop: true
-          });
-        });
-      </script>
-    
-
-    <!-- Template Javascript -->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<!-- Template Javascript -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
 
