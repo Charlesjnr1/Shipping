@@ -9,18 +9,21 @@ tracking_data = {
     "ABC123": {
         "status": "In Transit",
         "location": "Enugu",
-        "progress": 50,
-        "progressStage": 3,
+        "progress": 60,
+        "progressStage": 4,
+        "balance_due": 4000,
         "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "history": [
-            {"stage": 1, "label": "Order Placed", "icon": "fa-receipt"},
-            {"stage": 2, "label": "Processing", "icon": "fa-cogs"},
-            {"stage": 3, "label": "Shipped", "icon": "fa-shipping-fast"},
-            {"stage": 4, "label": "Out for Delivery", "icon": "fa-truck"},
-            {"stage": 5, "label": "Delivered", "icon": "fa-check-circle"}
+            {"label": "Picked Up", "location": "Detroit, MI", "done": True},
+            {"label": "In Transit", "location": "Jackson, MI", "done": True},
+            {"label": "Mid-Route Checkpoint", "location": "Kalamazoo, MI", "done": True},
+            {"label": "Border Clearance", "location": "Illinois Checkpoint", "done": False, "pending_reason": "Payment Pending"},
+            {"label": "Out for Delivery", "location": "Kankakee, IL", "done": False},
+            {"label": "Delivered", "location": "Receiver Confirmed", "done": False}
         ]
     }
 }
+
 
 # Admin credentials
 USERS = {
@@ -36,10 +39,22 @@ def index():
 def track():
     tracking_id = request.json.get("trackingId", "").strip().upper()
     data = tracking_data.get(tracking_id)
+
     if data:
-        return jsonify({"found": True, **data})
+        return jsonify({
+            "found": True,
+            "trackingId": tracking_id,
+            "status": data["status"],
+            "location": data["location"],
+            "progress": data["progress"],
+            "progressStage": data["progressStage"],
+            "balance_due": data.get("balance_due", 0),
+            "history": data.get("history", []),
+            "updated": data.get("updated")
+        })
     else:
         return jsonify({"found": False, "message": f"Tracking ID '{tracking_id}' not found."})
+
 
 @app.route("/admin", methods=["GET", "POST"])
 def admin_login():
@@ -77,9 +92,19 @@ def add_tracking():
         "location": request.form["location"],
         "progress": int(request.form["progress"]),
         "progressStage": int(request.form["stage"]),
-        "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "balance_due": 0,
+        "history": [
+            {"label": "Picked Up", "location": "Unknown", "done": True},
+            {"label": "In Transit", "location": "Unknown", "done": False},
+            {"label": "Mid-Route Checkpoint", "location": "Unknown", "done": False},
+            {"label": "Border Clearance", "location": "Unknown", "done": False},
+            {"label": "Out for Delivery", "location": "Unknown", "done": False},
+            {"label": "Delivered", "location": "Unknown", "done": False}
+        ]
     }
     return redirect(url_for("admin_dashboard"))
+
 
 @app.route("/admin/edit/<tid>", methods=["GET", "POST"])
 def edit_tracking(tid):
@@ -88,15 +113,38 @@ def edit_tracking(tid):
         return redirect(url_for("admin_dashboard"))
 
     if request.method == "POST":
-        tracking_data[tid] = {
-            "status": request.form["status"],
-            "location": request.form["location"],
-            "progress": int(request.form["progress"]),
-            "progressStage": int(request.form["stage"]),
-            "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        }
+        # Update basic fields
+        tracking_data[tid]["status"] = request.form["status"]
+        tracking_data[tid]["location"] = request.form["location"]
+        tracking_data[tid]["progress"] = int(request.form["progress"])
+        tracking_data[tid]["progressStage"] = int(request.form["stage"])
+        tracking_data[tid]["balance_due"] = float(request.form.get("balance_due", 0))
+        tracking_data[tid]["updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # Reconstruct the history list from form data
+        new_history = []
+        i = 0
+        while True:
+            label_key = f"history_label_{i}"
+            location_key = f"history_location_{i}"
+            done_key = f"history_done_{i}"
+
+            if label_key in request.form and location_key in request.form and done_key in request.form:
+                new_history.append({
+                    "label": request.form[label_key],
+                    "location": request.form[location_key],
+                    "done": request.form[done_key] == "True"
+                })
+                i += 1
+            else:
+                break
+
+        tracking_data[tid]["history"] = new_history
+
         return redirect(url_for("admin_dashboard"))
+
     return render_template("edit_tracking.html", tid=tid, data=tracking_data.get(tid))
+
 
 @app.route("/admin/delete/<tid>")
 def delete_tracking(tid):
