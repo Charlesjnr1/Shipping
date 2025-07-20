@@ -55,6 +55,11 @@ def track():
     else:
         return jsonify({"found": False, "message": f"Tracking ID '{tracking_id}' not found."})
 
+@app.before_request
+def enforce_https_in_production():
+    if request.headers.get('X-Forwarded-Proto', 'http') == 'http':
+        url = request.url.replace('http://', 'https://', 1)
+        return redirect(url, code=301)
 
 @app.route("/admin", methods=["GET", "POST"])
 def admin_login():
