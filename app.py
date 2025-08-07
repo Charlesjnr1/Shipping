@@ -17,9 +17,9 @@ tracking_data = {
             {"label": "Picked Up", "location": "Detroit, MI", "done": True},
             {"label": "In Transit", "location": "Jackson, MI", "done": True},
             {"label": "Mid-Route Checkpoint", "location": "Kalamazoo, MI", "done": True},
-            {"label": "Border Clearance", "location": "Illinois Checkpoint", "done": False, "pending_reason": "Payment Pending"},
+            {"label": "Border Clearance", "location": "Illinois Checkpoint", "done": False, "pending_reason": ""},
             {"label": "Out for Delivery", "location": "monmouthshire,south wales", "done": False},
-            {"label": "Delivered", "location": "Receiver Confirmed", "done": False}
+            {"label": "Delivered", "location": "pending", "done": False}
         ]
     }
 }
