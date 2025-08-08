@@ -17,7 +17,7 @@ tracking_data = {
             {"label": "Picked Up", "location": "Detroit, MI", "done": True},
             {"label": "In Transit", "location": "Jackson, MI", "done": True},
             {"label": "Mid-Route Checkpoint", "location": "Heathrow Airport, london", "done": True},
-            {"label": "Border Clearance", "location": "Uk border force Checkpoint", "done": False, "pending_reason": ""},
+            {"label": "Border Clearance", "location": "UK Border Force and HM Revenue & Customs (HMRC) Checkpoint", "done": False, "pending_reason": ""},
             {"label": "Out for Delivery", "location": "monmouthshire,south wales", "done": False},
             {"label": "Delivered", "location": "pending", "done": False}
         ]
