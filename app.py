@@ -11,7 +11,7 @@ tracking_data = {
         "location": "Michigan",
         "progress": 60,
         "progressStage": 4,
-        "balance_due":480,
+        "balance_due":520.03,
         "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "history": [
             {"label": "Picked Up", "location": "Detroit, MI", "done": True},
