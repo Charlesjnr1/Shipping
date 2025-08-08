@@ -6,18 +6,18 @@ app.secret_key = 'your_secret_key_here'
 
 # In-memory DB
 tracking_data = {
-    "ESLD174748": {
+    "ESLD174749": {
         "status": "In Transit",
         "location": "Michigan",
         "progress": 60,
         "progressStage": 4,
-        "balance_due": 0,
+        "balance_due":480,
         "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "history": [
             {"label": "Picked Up", "location": "Detroit, MI", "done": True},
             {"label": "In Transit", "location": "Jackson, MI", "done": True},
-            {"label": "Mid-Route Checkpoint", "location": "Kalamazoo, MI", "done": True},
-            {"label": "Border Clearance", "location": "Illinois Checkpoint", "done": False, "pending_reason": ""},
+            {"label": "Mid-Route Checkpoint", "location": "Heathrow Airport, london", "done": True},
+            {"label": "Border Clearance", "location": "Uk border force Checkpoint", "done": False, "pending_reason": ""},
             {"label": "Out for Delivery", "location": "monmouthshire,south wales", "done": False},
             {"label": "Delivered", "location": "pending", "done": False}
         ]
