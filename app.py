@@ -1,29 +1,47 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash
 from datetime import datetime
+import json
+import os
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
-# In-memory DB
-tracking_data = {
-    "ESLD174749": {
-        "status": "In Transit",
-        "location": "Michigan",
-        "progress": 60,
-        "progressStage": 4,
-        "balance_due":520.03,
-        "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "history": [
-            {"label": "Picked Up", "location": "Detroit, MI", "done": True},
-            {"label": "In Transit", "location": "Jackson, MI", "done": True},
-            {"label": "Mid-Route Checkpoint", "location": "Heathrow Airport, london", "done": True},
-            {"label": "Border Clearance", "location": "UK Border Force and HM Revenue & Customs (HMRC) Checkpoint", "done": False, "pending_reason": ""},
-            {"label": "Out for Delivery", "location": "monmouthshire,south wales", "done": False},
-            {"label": "Delivered", "location": "pending", "done": False}
-        ]
-    }
-}
+# JSON persistence
+DATA_FILE = "tracking.json"
 
+def load_data():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    return {}
+
+def save_data():
+    with open(DATA_FILE, "w") as f:
+        json.dump(tracking_data, f, indent=4)
+
+# Load tracking data from file (or initialize with default)
+tracking_data = load_data()
+
+if not tracking_data:
+    tracking_data = {
+        "ESLD174601": {
+            "status": "In Transit",
+            "location": "Cyd-cheresse Hill",
+            "progress": 80,
+            "progressStage": 4,
+            "balance_due": 0.00,
+            "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "history": [
+                {"label": "Picked Up", "location": "Detroit, MI", "done": True},
+                {"label": "In Transit", "location": "Jackson, MI", "done": True},
+                {"label": "Mid-Route Checkpoint", "location": "Heathrow Airport, London", "done": True},
+                {"label": "Border Clearance", "location": "US Border F Checkpoint", "done": False, "pending_reason": ""},
+                {"label": "Out for Delivery", "location": "Monmouthshire, South Wales", "done": False},
+                {"label": "Delivered", "location": "pending", "done": False}
+            ]
+        }
+    }
+    save_data()
 
 # Admin credentials
 USERS = {
@@ -108,8 +126,8 @@ def add_tracking():
             {"label": "Delivered", "location": "Unknown", "done": False}
         ]
     }
+    save_data()
     return redirect(url_for("admin_dashboard"))
-
 
 @app.route("/admin/edit/<tid>", methods=["GET", "POST"])
 def edit_tracking(tid):
@@ -118,7 +136,6 @@ def edit_tracking(tid):
         return redirect(url_for("admin_dashboard"))
 
     if request.method == "POST":
-        # Update basic fields
         tracking_data[tid]["status"] = request.form["status"]
         tracking_data[tid]["location"] = request.form["location"]
         tracking_data[tid]["progress"] = int(request.form["progress"])
@@ -126,7 +143,6 @@ def edit_tracking(tid):
         tracking_data[tid]["balance_due"] = float(request.form.get("balance_due", 0))
         tracking_data[tid]["updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        # Reconstruct the history list from form data
         new_history = []
         i = 0
         while True:
@@ -145,11 +161,10 @@ def edit_tracking(tid):
                 break
 
         tracking_data[tid]["history"] = new_history
-
+        save_data()
         return redirect(url_for("admin_dashboard"))
 
     return render_template("edit_tracking.html", tid=tid, data=tracking_data.get(tid))
-
 
 @app.route("/admin/delete/<tid>")
 def delete_tracking(tid):
@@ -158,6 +173,7 @@ def delete_tracking(tid):
         return redirect(url_for("admin_dashboard"))
 
     tracking_data.pop(tid, None)
+    save_data()
     return redirect(url_for("admin_dashboard"))
 
 @app.route("/admin/logout")
@@ -193,7 +209,6 @@ def contact():
 @app.route("/quote")
 def quote():
     return render_template("quote.html")
-
 
 if __name__ == "__main__":
     app.run(debug=True)
