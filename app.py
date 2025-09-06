@@ -32,11 +32,11 @@ if not tracking_data:
             "balance_due": 0.00,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "history": [
-                {"label": "Picked Up", "location": "Detroit, MI", "done": True},
-                {"label": "In Transit", "location": "Jackson, MI", "done": True},
-                {"label": "Mid-Route Checkpoint", "location": "Heathrow Airport, London", "done": True},
-                {"label": "Border Clearance", "location": "US Border F Checkpoint", "done": False, "pending_reason": ""},
-                {"label": "Out for Delivery", "location": "Monmouthshire, South Wales", "done": False},
+                {"label": "Picked Up", "location": "Buckhead Loop NE, ATL", "done": True},
+                {"label": "In Transit", "location": "Rogell Drive, MI", "done": True},
+                {"label": "Mid-Route Checkpoint", "location": "Detroit,US", "done": True},
+                {"label": "Border Clearance", "location": "Metropolitan Wayne county Airport", "done": False, "pending_reason": ""},
+                {"label": "Out for Delivery", "location": "Cyd-cheresse Hill,US", "done": False},
                 {"label": "Delivered", "location": "pending", "done": False}
             ]
         }
