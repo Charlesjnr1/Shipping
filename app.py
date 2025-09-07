@@ -29,7 +29,7 @@ if not tracking_data:
             "location": "Cyd-cheresse Hill",
             "progress": 80,
             "progressStage": 4,
-            "balance_due": 570.60,
+            "balance_due": 570.21,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "history": [
                 {"label": "Picked Up", "location": "Buckhead Loop NE, ATL", "done": True},
