@@ -36,7 +36,7 @@ if not tracking_data:
                 {"label": "In Transit", "location": "Rogell Drive, MI", "done": True},
                 {"label": "Mid-Route Checkpoint", "location": "Detroit,US", "done": True},
                 {"label": "Border Clearance", "location": "Metropolitan Wayne county Airport", "done": False, "pending_reason": ""},
-                {"label": "Out for Delivery", "location": "Pontiac Trail,MI", "done": False},
+                {"label": "Out for Delivery", "location": "48200 Pontiac Trail, Apt. 19Wixom, MI 48393", "done": False},
                 {"label": "Delivered", "location": "pending", "done": False}
             ]
         }
