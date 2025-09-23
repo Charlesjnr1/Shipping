@@ -41,6 +41,23 @@ if not tracking_data:
             ]
         }
     }
+     "ESLD174622": {
+            "status": "In Transit",
+            "location": "Cyd-cheresse Hill",
+            "progress": 80,
+            "progressStage": 4,
+            "balance_due": 570.21,
+            "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "history": [
+                {"label": "Picked Up", "location": "Buckhead Loop NE, ATL", "done": True},
+                {"label": "In Transit", "location": "Rogell Drive, MI", "done": True},
+                {"label": "Mid-Route Checkpoint", "location": "Detroit,US", "done": True},
+                {"label": "Border Clearance", "location": "Metropolitan Wayne county Airport", "done": False, "pending_reason": ""},
+                {"label": "Out for Delivery", "location": "48200 Pontiac Trail, Apt. 19Wixom, MI 48393", "done": False},
+                {"label": "Delivered", "location": "pending", "done": False}
+            ]
+        }
+    }
     save_data()
 
 # Admin credentials
