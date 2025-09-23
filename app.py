@@ -34,7 +34,7 @@ if not tracking_data:
             "history": [
                 {"label": "Picked Up", "location": "Buckhead Loop NE, ATL", "done": True},
                 {"label": "In Transit", "location": "Rogell Drive, MI", "done": True},
-                {"label": "Mid-Route Checkpoint", "location": "Detroit,US", "done": True},
+                {"label": "Mid-Route Checkpoint", "location": "Detroit, US", "done": True},
                 {"label": "Border Clearance", "location": "Metropolitan Wayne county Airport", "done": False, "pending_reason": ""},
                 {"label": "Out for Delivery", "location": "48200 Pontiac Trail, Apt. 19Wixom, MI 48393", "done": False},
                 {"label": "Delivered", "location": "pending", "done": False}
@@ -42,21 +42,20 @@ if not tracking_data:
         },
         "ESLD174622": {
             "status": "In Transit",
-    "location": "Sana'a, Yemen",
-    "progress": 40,
-    "progressStage": 2,
-    "balance_due":1020.75,
-    "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-    "history": [
-        {"label": "Picked Up", "location": "Sana'a, Yemen", "done": True},
-        {"label": "In Transit", "location": "Aden International Airport, Yemen", "done": True},
-        {"label": "Mid-Route Checkpoint", "location": "Dubai Intl Airport, UAE", "done": False},
-        {"label": "Border Clearance", "location": "US Customs, Los Angeles, CA", "done": False, "pending_reason": ""},
-        {"label": "Out for Delivery", "location": "5812 N Laguna Ct, Litchfield, AZ 85340", "done": False},
-        {"label": "Delivered", "location": "pending", "done": False}
-    ]
-}
-
+            "location": "Sana'a, Yemen",
+            "progress": 40,
+            "progressStage": 2,
+            "balance_due": 1020.75,
+            "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "history": [
+                {"label": "Picked Up", "location": "Sana'a, Yemen", "done": True},
+                {"label": "In Transit", "location": "Aden International Airport, Yemen", "done": True},
+                {"label": "Mid-Route Checkpoint", "location": "Dubai Intl Airport, UAE", "done": False},
+                {"label": "Border Clearance", "location": "US Customs, Los Angeles, CA", "done": False, "pending_reason": ""},
+                {"label": "Out for Delivery", "location": "5812 N Laguna Ct, Litchfield, AZ 85340", "done": False},
+                {"label": "Delivered", "location": "pending", "done": False}
+            ]
+        },   # <--- comma added here
         "PKG552910": {
             "status": "Delivered",
             "location": "New York, NY",
@@ -76,6 +75,7 @@ if not tracking_data:
     }
 
     save_data()
+
 
 
 # Admin credentials
