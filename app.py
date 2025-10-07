@@ -57,18 +57,17 @@ if not tracking_data:
             ]
         },   # <--- comma added here
         "PKG552910": {
-            "status": "Delivered",
-            "location": "New York, NY",
+            "status": "In Transit",
+            "location": "Scottsdale,AZ",
             "progress": 100,
             "progressStage": 6,
             "balance_due": 0.00,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "history": [
-                {"label": "Picked Up", "location": "Los Angeles, CA", "done": True},
-                {"label": "In Transit", "location": "Denver, CO", "done": True},
-                {"label": "Mid-Route Checkpoint", "location": "Columbus, OH", "done": True},
-                {"label": "Border Clearance", "location": "JFK Airport, NY", "done": True},
-                {"label": "Out for Delivery", "location": "Manhattan, NY", "done": True},
+                {"label": "Picked Up", "location": "Scottsdale,AZ ", "done": True},
+                {"label": "In Transit", "location": "Tucson, AZ", "done": True},
+               
+                {"label": "Out for Delivery", "location": "7474 Skillman Street, Dallas, TX 75231", "pending": True},
                 {"label": "Delivered", "location": "New York, NY", "done": True}
             ]
         }
