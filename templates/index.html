@@ -675,7 +675,7 @@
 
         // Build timeline HTML
         let html = `
-          <h5 class="text-center mb-3">Final Step – Clearance ${progress < 100 ? 'Dispatch fee Pending' : 'Complete'}</h5>
+          <h5 class="text-center mb-3">Tracking details ${progress < 100 ? '' : 'Complete'}</h5>
           <p class="text-center text-muted mb-2">
             <strong>Tracking ID:</strong> ${trackingId}<br>
             <strong>Balance Due:</strong> $${data.balance_due || 0} <small>${progress < 100 ? '(15% Discount Applied)' : ''}</small>
