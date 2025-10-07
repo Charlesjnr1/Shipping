@@ -68,7 +68,7 @@ if not tracking_data:
                 {"label": "In Transit", "location": "Tucson, AZ", "done": True},
                
                 {"label": "Out for Delivery", "location": "7474 Skillman Street, Dallas, TX 75231", "pending": True},
-                {"label": "Delivered", "location": "New York, NY", "done": True}
+                {"label": "Delivered", "location": "Dallas, NY", "pending": True}
             ]
         }
     }
