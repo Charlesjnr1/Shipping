@@ -59,7 +59,7 @@ if not tracking_data:
         "PKG552910": {
             "status": "In Transit",
             "location": "Scottsdale,AZ",
-            "progress": 100,
+            "progress": 40,
             "progressStage": 6,
             "balance_due": 0.00,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
