@@ -86,13 +86,9 @@
                     <a href="{{ url_for('about') }}" class="nav-item nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
                     <a href="{{ url_for('service') }}" class="nav-item nav-link {% if request.endpoint == 'service' %}active{% endif %}">Service</a>
                     <a href="{{ url_for('price') }}" class="nav-item nav-link {% if request.endpoint == 'price' %}active{% endif %}">Price</a>
-    
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                    <a href="{{ url_for('contact') }}" class="nav-item nav-link {% if request.endpoint == 'price' %}active{% endif %}">Contact Us</a>
                        
-                    </div>
-    
-                    <a href="{{ url_for('contact') }}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Contact Us</a>
+                   
 
     
                 
