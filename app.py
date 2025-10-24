@@ -58,17 +58,17 @@ if not tracking_data:
         },   # <--- comma added here
         "PKG552910": {
             "status": "In Transit",
-            "location": "Sierra Blanca, TX",
-            "progress": 40,
+            "location": "Ontario,Canada",
+            "progress": 60,
             "progressStage": 6,
-            "balance_due": 790.34,
+            "balance_paid": 900.34,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "history": [
-                {"label": "Picked Up", "location": "Scottsdale,AZ ", "done": True},
-                {"label": "In Transit", "location": "Sierra Blanca, TX", "done": True},
+                {"label": "Picked Up", "location": "Ontario,CA ", "done": True},
+                {"label": "In Transit", "location": "Ottawa, CA", "done": True},
                
-                {"label": "Out for Delivery", "location": "7474 Skillman Street, Dallas, TX 75231", "pending": True},
-                {"label": "Delivered", "location": "Dallas, NY", "pending": True}
+                {"label": "Out for Delivery", "location": ", Wiconsin, US ", "pending": True},
+                {"label": "Delivered", "location": "Wiconsin, US", "pending": True}
             ]
         }
     }
