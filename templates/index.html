@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Earlystar Logistics company</title>
+    <title>FASTER - Logistics Company Website Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -41,7 +41,7 @@
                 <div class="d-inline-flex align-items-center text-white">
                     <small><i class="fa fa-phone-alt mr-2"></i></small>
                     <small class="px-3">|</small>
-                    <small><i class="fa fa-envelope mr-2"></i>Earlystarlogistics@gmail.com</small>
+                    <small><i class="fa fa-envelope mr-2"></i>earlystarcustomercare@gmail.com</small>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -73,7 +73,7 @@
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
             <a href="{{ url_for('index') }}" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary">
-                    <i class="fa fa-truck mr-2"></i>E&S logistics
+                    <i class="fa fa-truck mr-2"></i>E&Slogistics
                 </h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -86,9 +86,13 @@
                     <a href="{{ url_for('about') }}" class="nav-item nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
                     <a href="{{ url_for('service') }}" class="nav-item nav-link {% if request.endpoint == 'service' %}active{% endif %}">Service</a>
                     <a href="{{ url_for('price') }}" class="nav-item nav-link {% if request.endpoint == 'price' %}active{% endif %}">Price</a>
-                    <a href="{{ url_for('contact') }}" class="nav-item nav-link {% if request.endpoint == 'price' %}active{% endif %}">Contact Us</a>
+    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                        
-                   
+                    </div>
+    
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Contact Us</a>
 
     
                 
@@ -347,7 +351,7 @@
                         <p>Nationwide Coverage</p>
                         <p>Real-Time Tracking</p>
                         <p>Basic Customer Support</p>
-                        
+                        <a href="#" class="btn btn-primary py-2 px-4 mt-3">Select Option</a>
                     </div>
                 </div>
             </div>
@@ -363,7 +367,7 @@
                         <p>Priority Handling</p>
                         <p>Live Tracking & Updates</p>
                         <p>Premium Support</p>
-                        
+                        <a href="#" class="btn btn-primary py-2 px-4 mt-3">Select Option</a>
                     </div>
                 </div>
             </div>
@@ -379,7 +383,7 @@
                         <p>Door-to-Door Pickup</p>
                         <p>24/7 Live Tracking</p>
                         <p>Dedicated Support Team</p>
-                        
+                        <a href="#" class="btn btn-primary py-2 px-4 mt-3">Select Option</a>
                     </div>
                 </div>
             </div>
@@ -557,8 +561,8 @@
                     <div class="col-md-6 mb-5">
                         <h3 class="text-primary mb-4">Get In Touch</h3>
                         <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i>+1 765 3429 854</p>
-                        <p><i class="fa fa-envelope mr-2"></i>Earlystarcustomercare@gmail.com</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i></p>
+                        <p><i class="fa fa-envelope mr-2"></i>earlystarcustomercare@gmail.com</p>
                         <div class="d-flex justify-content-start mt-4">
                             <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -678,7 +682,7 @@
           </p>
           <div class="progress mb-3" style="height: 10px;">
             <div class="progress-bar bg-warning" style="width: ${progress}%;"></div>
-          </div>
+          </div>  
           <ul class="list-unstyled">
         `;
 
@@ -763,7 +767,7 @@
             items: 1,
             dots: true,
             loop: true
-          });
+          }); 
         });
       </script>
     
