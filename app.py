@@ -61,7 +61,7 @@ if not tracking_data:
             "location": "Ontario,Canada",
             "progress": 60,
             "progressStage": 6,
-            "balance_paid": 800.74,
+            "balance_due": 800.74,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "history": [
                 {"label": "Picked Up", "location": "Ontario,CA ", "done": True},
