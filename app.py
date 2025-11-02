@@ -57,16 +57,17 @@ if not tracking_data:
             ]
         },   # <--- comma added here
         "PKG552910": {
-            "status": "In Transit",
+            "status": "On hold",
             "location": "Ontario,Canada",
             "progress": 60,
             "progressStage": 6,
-            "balance_paid": 900.34,
+            "balance_paid": 800.74,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "history": [
                 {"label": "Picked Up", "location": "Ontario,CA ", "done": True},
                 {"label": "In Transit", "location": "Ottawa, CA", "done": True},
-               
+                {"label": "Arrived", "location": "United state,", "done": True},
+               {"label": "Border Clearance", "location": "US Customs, Los Angeles, CA", "done": False, "pending_reason": ""},
                 {"label": "Out for Delivery", "location": ", Wiconsin, US ", "pending": True},
                 {"label": "Delivered", "location": "Wiconsin, US", "pending": True}
             ]
