@@ -45,7 +45,7 @@ if not tracking_data:
             "location": "Rusia",
             "progress": 40,
             "progressStage": 2,
-            "balance_due": 1020.75,
+            "balance_due": 2560.75,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "history": [
                 {"label": "Picked Up", "location": "Rusia", "done": True},
