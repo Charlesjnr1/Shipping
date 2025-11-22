@@ -42,17 +42,16 @@ if not tracking_data:
         },
         "ESLD174622": {
             "status": "In Transit",
-            "location": "Sana'a, Yemen",
+            "location": "Rusia",
             "progress": 40,
             "progressStage": 2,
             "balance_due": 1020.75,
             "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "history": [
-                {"label": "Picked Up", "location": "Sana'a, Yemen", "done": True},
-                {"label": "In Transit", "location": "Aden International Airport, Yemen", "done": True},
-                {"label": "Mid-Route Checkpoint", "location": "Dubai Intl Airport, UAE", "done": False},
-                {"label": "Border Clearance", "location": "US Customs, Los Angeles, CA", "done": False, "pending_reason": ""},
-                {"label": "Out for Delivery", "location": "5812 N Laguna Ct, Litchfield, AZ 85340", "done": False},
+                {"label": "Picked Up", "location": "Rusia", "done": True},
+                {"label": "In Transit", "location": " Abakan International Airport, rusia", "done": True},
+                {"label": "Mid-Route Checkpoint", "location": "Vladivostok, Rusia", "done": False},
+                {"label": "Out for Delivery", "location": "619 Vu Tong Phan Khuong Dinh Thanh Xuan, Vietnam", "done": False},
                 {"label": "Delivered", "location": "pending", "done": False}
             ]
         },   # <--- comma added here
